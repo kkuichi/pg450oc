@@ -65,35 +65,30 @@ python -m pip install -r requirements.txt
 ### CovidGAN
 
 ```powershell
-cd pg450oc-main\CovidGAN
 python covidgan_testing2.py
 ```
 
 ### CTGAN
 
 ```powershell
-cd pg450oc-main\CTGAN
 python ctgan_testing.py
 ```
 
 ### MedGAN
 
 ```powershell
-cd pg450oc-main\MedGAN
 python medgan_testing3.py
 ```
 
 ### WGAN
 
 ```powershell
-cd pg450oc-main\WGAN
 python wgan_testing3.py
 ```
 
 ### Digital Twin
 
 ```powershell
-cd pg450oc-main\DigitalTwin
 python digital_twin.py
 ```
 
