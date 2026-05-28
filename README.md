@@ -19,24 +19,30 @@ Základné komponenty projektu:
 - OpenPyXL
 - CTGAN knižnica (pre CTGAN modul)
 
-Pre inštaláciu základných knižníc použite príkaz:
+Pre inštaláciu základných knižníc použite príkazy (z projektu `pg450oc-main`):
 
 ```powershell
+# Vytvorenie virtuálneho prostredia
 python -m venv .venv
+
+# Aktivácia virtuálneho prostredia
 .\.venv\Scripts\Activate.ps1
-pip install --upgrade pip
-pip install -r requirements.txt
+
+# Upgrade pip a inštalácia závislostí
+python -m pip install --upgrade pip setuptools wheel
+python -m pip install -r models/requirements.txt
 ```
 
-> Ak používate iný shell alebo OS, nahraďte `Activate.ps1` zodpovedajúcim príkazom.
+> **Poznámka:** V PowerShell použite vždy `python -m pip` namiesto samotného `pip`.
+> Ak používate iný shell alebo OS, nahraďte `Activate.ps1` zodpovedajúcim príkazom (napr. `source .venv/bin/activate` na Linuxe/Mac).
 
 ## Popis skriptov
 
-- CovidGAN/covidgan_testing2.py — skript pre trénovanie CovidGAN modelu, generovanie náhodných a vyvážených syntetických Covid dát, uloženie výsledkov a vyhodnotenie kvality.
-- CTGAN/ctgan_testing.py — skript pre trénovanie CTGAN a generovanie syntetických tabulárnych dát.
-- MedGAN/medgan_testing.py — skript pre trénovanie MedGAN a vyhodnotenie generovaných dát.
-- WGAN/wgan_testing.py — skript pre trénovanie WGAN a generovanie syntetických medicínskych dát.
-- DigitalTwin/digital_twin.py — skript pre simuláciu digitálneho dvojčaťa a analýzu výsledkov.
+- **CovidGAN/covidgan_testing2.py** — skript pre trénovanie CovidGAN modelu, generovanie náhodných a vyvážených syntetických Covid dát, uloženie výsledkov a vyhodnotenie kvality.
+- **CTGAN/ctgan_testing.py** — skript pre trénovanie CTGAN a generovanie syntetických tabulárnych dát.
+- **MedGAN/medgan_testing3.py** — skript pre trénovanie MedGAN a vyhodnotenie generovaných dát.
+- **WGAN/wgan_testing3.py** — skript pre trénovanie WGAN a generovanie syntetických medicínskych dát.
+- **DigitalTwin/digital_twin.py** — skript pre simuláciu digitálneho dvojčaťa a analýzu výsledkov.
 
 ## Zoznam použitých modelov
 
@@ -48,42 +54,62 @@ pip install -r requirements.txt
 
 ## Dôležité poznámky
 
-- Skripty je najlepšie spúšťať z adresára projektu alebo z adresára, v ktorom sa nachádzajú príslušné skripty.
-- Upravte cesty k datasetom priamo v skriptoch, ak nie sú umiestnené v predpokladanom priečinku datasets/.
-- Skontrolujte, či dátové súbory majú správny formát (CSV, XLSX) a očakávané stĺpce.
-- Pre trénovanie veľkých modelov je odporúčané použitie GPU.
-- Ak používate Windows, spúšťajte python/py v aktívnom virtuálnom prostredí.
+- **Virtuálne prostredie:** Vždy aktivujte virtuálne prostredie pred spustením skriptov: `.\.venv\Scripts\Activate.ps1`
+- **PowerShell:** V PowerShell na Windows vždy použite `python -m pip` namiesto samotného `pip` príkazu.
+- **Spustenie skriptov:** Skripty sa môžu spúšťať z priečinku projektu alebo z priečinku konkrétneho modulu.
+- **Cesty k datasetom:** Upravte cesty k datasetom priamo v skriptoch, ak nie sú umiestnené v `models/datasets/` priečinku.
+- **Formáty dát:** Skontrolujte, či dátové súbory majú správny formát (CSV, XLSX) a očakávané stĺpce.
+- **GPU:** Pre trénovanie veľkých modelov je odporúčané použitie GPU (CUDA).
+- **Verzionácia:** Projekt používa Python 3.14.2 v virtuálnom prostredí (`.venv`).
+- **Výstupy:** Výsledky, čekpointy a grafy sa ukladajú do priečinkov jednotlivých modulov.
 
 ## Spustenie jednotlivých modulov
+
+**Prerequisites:** Virtuálne prostredie musí byť aktivované (`(.venv)` prefix v príkazovom riadku).
 
 ### CovidGAN
 
 ```powershell
-py covidgan_testing.py
+cd models\CovidGAN
+python covidgan_testing2.py
 ```
 
 ### CTGAN
 
 ```powershell
-py ctgan_testing.py
+cd models\CTGAN
+python ctgan_testing.py
 ```
 
 ### MedGAN
 
 ```powershell
-py medgan_testing.py
+cd models\MedGAN
+python medgan_testing3.py
 ```
 
 ### WGAN
 
 ```powershell
-py wgan_testing.py
+cd models\WGAN
+python wgan_testing3.py
 ```
 
 ### Digital Twin
 
 ```powershell
-py digital_twin.py
+cd models\DigitalTwin
+python digital_twin.py
+```
+
+**Alternatívne:** Spustenie z koreňového adresára projektu:
+
+```powershell
+python models\CovidGAN\covidgan_testing2.py
+python models\CTGAN\ctgan_testing.py
+python models\MedGAN\medgan_testing3.py
+python models\WGAN\wgan_testing3.py
+python models\DigitalTwin\digital_twin.py
 ```
 
 ## Výstupy
