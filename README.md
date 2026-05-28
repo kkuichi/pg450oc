@@ -65,46 +65,46 @@ python -m pip install -r models/requirements.txt
 ### CovidGAN
 
 ```powershell
-cd models\CovidGAN
+cd pg450oc-main\CovidGAN
 python covidgan_testing2.py
 ```
 
 ### CTGAN
 
 ```powershell
-cd models\CTGAN
+cd pg450oc-main\CTGAN
 python ctgan_testing.py
 ```
 
 ### MedGAN
 
 ```powershell
-cd models\MedGAN
+cd pg450oc-main\MedGAN
 python medgan_testing3.py
 ```
 
 ### WGAN
 
 ```powershell
-cd models\WGAN
+cd pg450oc-main\WGAN
 python wgan_testing3.py
 ```
 
 ### Digital Twin
 
 ```powershell
-cd models\DigitalTwin
+cd pg450oc-main\DigitalTwin
 python digital_twin.py
 ```
 
 **Alternatívne:** Spustenie z koreňového adresára projektu:
 
 ```powershell
-python models\CovidGAN\covidgan_testing2.py
-python models\CTGAN\ctgan_testing.py
-python models\MedGAN\medgan_testing3.py
-python models\WGAN\wgan_testing3.py
-python models\DigitalTwin\digital_twin.py
+python pg450oc-main\CovidGAN\covidgan_testing2.py
+python pg450oc-main\CTGAN\ctgan_testing.py
+python pg450oc-main\MedGAN\medgan_testing3.py
+python pg450oc-main\WGAN\wgan_testing3.py
+python pg450oc-main\DigitalTwin\digital_twin.py
 ```
 
 ## Výstupy
