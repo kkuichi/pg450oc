@@ -30,7 +30,7 @@ python -m venv .venv
 
 # Upgrade pip a inštalácia závislostí
 python -m pip install --upgrade pip setuptools wheel
-python -m pip install -r pg450oc-main/requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 > **Poznámka:** V PowerShell použite vždy `python -m pip` namiesto samotného `pip`.
