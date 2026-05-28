@@ -1,55 +1,65 @@
-# Medical Synthetic Data GANs
+# Modelovanie syntetických medicínskych dát s využitím generatívnych modelov
 
-Tento repozitár obsahuje experimenty s generatívnymi sieťami pre syntetické medicínske dáta. Projekt zahŕňa rôzne GAN architektúry pre generovanie a vyhodnocovanie syntetických Covid dát, vrátane:
+## Systémová príručka
 
-- `CovidGAN` 
-- `CTGAN` 
-- `MedGAN`
-- `WGAN`
-- `DigitalTwin`
+Tento repozitár obsahuje experimenty s generatívnymi sieťami pre syntetické medicínske dáta a digitálne dvojča. Hlavné moduly sú CovidGAN, CTGAN, MedGAN, WGAN a DigitalTwin. Každý modul má samostatný skript pre načítanie dát, trénovanie/generovanie a vyhodnotenie.
 
+## Použité súčasti
 
-## Štruktúra projektu
+Základné komponenty projektu:
 
-- `CovidGAN/` — skripty a výstupy pre CovidGAN
-- `CTGAN/` — skripty pre CTGAN experimenty
-- `MedGAN/` — skripty pre MedGAN experimenty
-- `WGAN/` — skripty pre WGAN experimenty
-- `DigitalTwin/` — skripty pre digitálne dvojča a výsledky simulácie
-- `datasets/` — vstupné datasety (CSV/XLSX)
+- Python 3.11 alebo novší
+- NumPy
+- Pandas
+- PyTorch
+- scikit-learn
+- SciPy
+- Matplotlib
+- Seaborn
+- OpenPyXL
+- CTGAN knižnica (pre CTGAN modul)
 
-## Požiadavky
-
-Odporúčané prostredie:
-
-- Python 3.10+ alebo 3.11
-- Virtuálne prostredie `venv`
-
-Inštalácia závislostí (príklad):
+Pre inštaláciu základných knižníc použite príkaz:
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install --upgrade pip
-pip install torch scikit-learn scipy matplotlib seaborn pandas openpyxl ctgan
+pip install -r requirements.txt
 ```
 
-> Ak používate iný systém, nahraďte `Activate.ps1` za `activate` (Windows CMD) alebo `source .venv/bin/activate` (Linux/macOS).
+> Ak používate iný shell alebo OS, nahraďte `Activate.ps1` zodpovedajúcim príkazom.
 
-## Dáta
+## Popis skriptov
 
-Skripty hľadajú datasetové súbory v priečinku `datasets/`. Podporované formáty sú:
+- CovidGAN/covidgan_testing2.py — skript pre trénovanie CovidGAN modelu, generovanie náhodných a vyvážených syntetických Covid dát, uloženie výsledkov a vyhodnotenie kvality.
+- CTGAN/ctgan_testing.py — skript pre trénovanie CTGAN a generovanie syntetických tabulárnych dát.
+- MedGAN/medgan_testing.py — skript pre trénovanie MedGAN a vyhodnotenie generovaných dát.
+- WGAN/wgan_testing.py — skript pre trénovanie WGAN a generovanie syntetických medicínskych dát.
+- DigitalTwin/digital_twin.py — skript pre simuláciu digitálneho dvojčaťa a analýzu výsledkov.
 
-- `.csv`
-- `.xls`
-- `.xlsx`
+## Zoznam použitých modelov
 
-## Spustenie jednotlivých modelov
+- CovidGAN (ACGAN / podmienená generácia)
+- CTGAN (tabulárna GAN generácia)
+- MedGAN (medicínsky GAN pre tabulárne dáta)
+- WGAN (Wasserstein GAN)
+- Digitálne dvojča (Digital Twin) simulácia
+
+## Dôležité poznámky
+
+- Skripty je najlepšie spúšťať z adresára projektu alebo z adresára, v ktorom sa nachádzajú príslušné skripty.
+- Upravte cesty k datasetom priamo v skriptoch, ak nie sú umiestnené v predpokladanom priečinku datasets/.
+- Skontrolujte, či dátové súbory majú správny formát (CSV, XLSX) a očakávané stĺpce.
+- Pre trénovanie veľkých modelov je odporúčané použitie GPU.
+- Ak používate Windows, spúšťajte python/py v aktívnom virtuálnom prostredí.
+
+## Spustenie jednotlivých modulov
 
 ### CovidGAN
 
 ```powershell
-py covidgan_testing2.py
+py covidgan_testing.py
 ```
 
 ### CTGAN
@@ -70,7 +80,7 @@ py medgan_testing.py
 py wgan_testing.py
 ```
 
-### DigitalTwin
+### Digital Twin
 
 ```powershell
 py digital_twin.py
@@ -83,18 +93,4 @@ Po spustení skriptov sa môžu uložiť:
 - syntetické CSV súbory
 - trénovacie checkpointy
 - grafy a vizualizácie
-
-## Upraviteľné nastavenia
-
-Každý skript obsahuje sekciu konfigurácie, kde môžete upraviť:
-
-- cesty k datasetom
-- názov cieľového stĺpca
-- hyperparametre modelu
-- počet epôch a batch veľkosť
-- cesty pre ukladanie checkpointov
-
-## Tipy
-
-- Pred každým spustením odporúčam aktivovať virtuálne prostredie.
-- Datasety uložte do `datasets/` a skontrolujte názvy stĺpcov.
+- výsledky simulácie digitálneho dvojčaťa
