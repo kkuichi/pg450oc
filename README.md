@@ -57,11 +57,6 @@ python -m pip install -r models/requirements.txt
 - **Virtuálne prostredie:** Vždy aktivujte virtuálne prostredie pred spustením skriptov: `.\.venv\Scripts\Activate.ps1`
 - **PowerShell:** V PowerShell na Windows vždy použite `python -m pip` namiesto samotného `pip` príkazu.
 - **Spustenie skriptov:** Skripty sa môžu spúšťať z priečinku projektu alebo z priečinku konkrétneho modulu.
-- **Cesty k datasetom:** Upravte cesty k datasetom priamo v skriptoch, ak nie sú umiestnené v `models/datasets/` priečinku.
-- **Formáty dát:** Skontrolujte, či dátové súbory majú správny formát (CSV, XLSX) a očakávané stĺpce.
-- **GPU:** Pre trénovanie veľkých modelov je odporúčané použitie GPU (CUDA).
-- **Verzionácia:** Projekt používa Python 3.14.2 v virtuálnom prostredí (`.venv`).
-- **Výstupy:** Výsledky, čekpointy a grafy sa ukladajú do priečinkov jednotlivých modulov.
 
 ## Spustenie jednotlivých modulov
 
